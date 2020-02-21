@@ -1,0 +1,28 @@
+<div class="welcome">
+
+
+<br>
+
+<ul class="signupbuttons"><% if user_signed_in? %>
+<li>
+<h1 class="heading">Welcome  <%=current_user.email.split('@')[0]%>!!!!</h1>
+
+</li>
+<br>
+<li>
+<%= link_to "Signout", destroy_user_session_path,method: :delete %>
+</li>
+<br>
+<%= link_to "Book Movies", movs_path%>
+<% else %>
+<br>
+<li>
+<h1 class="heading">Welcome to BookmyMovie!!!!</h1>
+<%= link_to "Sign in", new_user_session_path%>
+
+<%= link_to "Sign up", new_user_registration_path %>
+</li>
+<% end %>
+</ul>
+</div>
+

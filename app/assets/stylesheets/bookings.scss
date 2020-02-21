@@ -1,0 +1,19 @@
+// Place all the styles related to the bookings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.bookings {
+  text-align: center;
+}
+table {
+  margin-left: 350px;
+}
+
+.booktext {
+  font-size: 16px;
+  font-weight: bold;
+  /* text-align: center; */
+  display: inline-block;
+
+  background: white;
+  padding: 15px 15px 15px 15px;
+}

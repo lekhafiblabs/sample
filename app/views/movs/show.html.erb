@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<section>
+<div class="movim">
+<%=image_tag(@mov.image,class:"movimage")%>
+</div>
+<p>
+  <strong>Moviename:</strong>
+  <%= @mov.moviename %>
+</p>
+
+<p>
+  <strong>Cast:</strong>
+  <%= @mov.cast %>
+</p>
+
+<p>
+  <strong>Lang:</strong>
+  <%= @mov.lang %>
+</p>
+
+<%= link_to 'Edit', edit_mov_path(@mov) %> |
+<%= link_to 'Back', movs_path %>
+</section>

@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>    
+ <% if current_user && current_user.admin %>
+<div class="bookings">
+
+
+<h1 class="heading">Bookings</h1>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th class="booktext">User</th>
+      <th class="booktext">Mov</th>
+      <th class="booktext">Slot</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+      <%00%>
+        <td class="booktext"><%= booking.user.email %></td>
+        <td class="booktext"><%= booking.mov.moviename %></td>
+        <td class="booktext"><%= booking.slot.timings %></td>
+        <td class="bookcrud"><%= link_to 'Show', booking %></td>
+        <% if current_user && current_user.admin %>
+        <td class="movcrud"><%= link_to 'Edit', edit_booking_path(booking) %></td>
+        <td class="movcrud"><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Booking', new_booking_path %>
+     
+          <% else %>
+         
+      <script type="text/javascript">
+    window.location.href="/home/index"  // put your correct path in a string here
+  </script>
+          <% end %>
+</div>

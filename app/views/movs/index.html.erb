@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="head">Movies</h1>
+<div class="navbar">
+<%= link_to 'New Mov', new_mov_path %>
+<%= link_to 'Home', home_index_path %>
+
+<div class="container">
+<%= form_tag movs_path, :method=>'get' do %>
+<%=text_field_tag :query,params[:query],:autocomplete => :off,class: 'form-control typeahead' %>
+  <div class="search"><%= submit_tag "Search"%></div>
+  </div>
+
+<% end %>
+</div>
+
+
+
+<br><br><br>
+
+<div class="imgcontainer">
+
+  <% @movs.each do |mov| %>
+     
+    <div class="datablock movietext">
+        <%=image_tag(mov.image,class:"movimage") if mov.image.attached?%>
+        <div class="textblock">
+        <li class="movtext">  <%= mov.moviename %></li><br>
+      
+       <li class="movsubtext">  <%= mov.cast %>  |
+      <%= mov.lang %></li>
+        
+     <div class="movcrud">
+     <%= link_to 'Book', new_slot_path(:mov_id=>mov.id) %>
+       
+        <% if current_user && current_user.admin %>
+             <!-- <td><%= link_to 'Show', mov %></td>-->
+      
+              <%= link_to 'Edit', edit_mov_path(mov) %>
+              <%= link_to 'Destroy', mov, method: :delete, data: { confirm: 'Are you sure?' } %>
+        
+        <% end %>
+    </div>
+    </div>
+    </div>
+  <% end %>
+
+   
+</div>
+
+
+
+
+
+
+
